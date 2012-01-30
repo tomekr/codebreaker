@@ -6,7 +6,7 @@ module Codebreaker
       let(:output) { double('output').as_null_object }
       let(:game)   { Game.new(output) }
 
-      # Replaced by let which "let( ) takes a symbol representing a
+      # Replaced by let which "let() takes a symbol representing a
       # method name and a block, which represents the implementation of
       # that method." that way you don't have to add the tedious and
       # error prone @ symbols to all the variables with begin
@@ -17,13 +17,13 @@ module Codebreaker
       # end
 
       it "sends a welcome message" do
-        @output.should_receive(:puts).with('Welcome to Codebreaker!')
-        @game.start
+        output.should_receive(:puts).with('Welcome to Codebreaker!')
+        game.start('1234')
       end
 
       it "prompts for the first guess" do
-        @output.should_receive(:puts).with('Enter guess:')
-        @game.start
+        output.should_receive(:puts).with('Enter guess:')
+        game.start('1234')
       end
     end
   end
